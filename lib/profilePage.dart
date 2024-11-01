@@ -24,14 +24,14 @@ class Page5 extends StatelessWidget {
                       height: 80,
                       clipBehavior: Clip.antiAlias,
                       decoration: BoxDecoration(
-                          color: Colors.red,
+                          // color: Colors.red,
                           borderRadius: BorderRadius.circular(75)),
                       width: 80,
                       child: SizedBox(
                         height: 50,
-                        child: Image.network(
-                          "https://www.masala.com/cloud/2021/08/01/a1D0iO1L-salman-khan-tggkFyajheigh.jpg.jpg",
-                          fit: BoxFit.fitHeight,
+                        child: Image.asset(
+                          "assets/profileimg.jpg",
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
@@ -117,7 +117,7 @@ class Page5 extends StatelessWidget {
             //   height: 5,
             // ),
             const Text(
-              "Lawrence Bishnoi",
+              "Nadia Santini",
               style: TextStyle(fontSize: 21, fontWeight: FontWeight.w700),
             ),
             const Text(
@@ -283,7 +283,7 @@ class _Tabcontainer extends State {
                   width: 115,
                   decoration: BoxDecoration(
                       color: selectedIndex == 0
-                          ? const Color.fromARGB(231, 112, 70, 249)
+                          ? const Color.fromRGBO(27, 94, 32, 1)
                           : Colors.transparent,
                       borderRadius: BorderRadius.circular(10)),
                   child: Center(
@@ -292,7 +292,7 @@ class _Tabcontainer extends State {
                       style: TextStyle(
                           color: selectedIndex == 0
                               ? Colors.white
-                              : const Color.fromARGB(231, 112, 70, 249),
+                              : const Color.fromRGBO(27, 94, 32, 1),
                           fontWeight: FontWeight.w700),
                     ),
                   ),
@@ -308,7 +308,7 @@ class _Tabcontainer extends State {
                   width: 115,
                   decoration: BoxDecoration(
                       color: selectedIndex == 1
-                          ? const Color.fromARGB(231, 112, 70, 249)
+                          ? const Color.fromRGBO(27, 94, 32, 1)
                           : Colors.transparent,
                       // color: const Color.fromARGB(255, 4, 150, 55),
                       borderRadius: BorderRadius.circular(10)),
@@ -318,7 +318,7 @@ class _Tabcontainer extends State {
                       style: TextStyle(
                           color: selectedIndex == 1
                               ? Colors.white
-                              : const Color.fromARGB(231, 112, 70, 249),
+                              : const Color.fromRGBO(27, 94, 32, 1),
                           fontWeight: FontWeight.w700),
                     ),
                   ),
@@ -334,7 +334,7 @@ class _Tabcontainer extends State {
                   width: 115,
                   decoration: BoxDecoration(
                       color: selectedIndex == 2
-                          ? const Color.fromARGB(231, 112, 70, 249)
+                          ? const Color.fromRGBO(27, 94, 32, 1)
                           : Colors.transparent,
                       // color: const Color.fromARGB(255, 4, 150, 55),
                       borderRadius: BorderRadius.circular(10)),
@@ -344,7 +344,7 @@ class _Tabcontainer extends State {
                       style: TextStyle(
                           color: selectedIndex == 2
                               ? Colors.white
-                              : const Color.fromARGB(231, 112, 70, 249),
+                              : const Color.fromRGBO(27, 94, 32, 1),
                           fontWeight: FontWeight.w700),
                     ),
                   ),
@@ -410,7 +410,8 @@ class _Tabcontainer extends State {
                               top: 10,
                               right: 10,
                               child: Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 2),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 2),
                                 height: 18,
                                 width: 45,
                                 decoration: BoxDecoration(
@@ -490,7 +491,8 @@ class _Tabcontainer extends State {
                               top: 10,
                               right: 10,
                               child: Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 2),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 2),
                                 height: 18,
                                 width: 45,
                                 decoration: BoxDecoration(
@@ -570,7 +572,8 @@ class _Tabcontainer extends State {
                               top: 10,
                               right: 10,
                               child: Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 2),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 2),
                                 height: 18,
                                 width: 45,
                                 decoration: BoxDecoration(
@@ -650,7 +653,8 @@ class _Tabcontainer extends State {
                               top: 10,
                               right: 10,
                               child: Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 2),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 2),
                                 height: 18,
                                 width: 45,
                                 decoration: BoxDecoration(
@@ -1262,7 +1266,7 @@ class _Tabcontainer extends State {
                           SvgPicture.asset(
                             "assets/instagram-tag-icon.svg",
                             width: 45,
-                            color: const Color.fromARGB(231, 112, 70, 249),
+                            color: const Color.fromRGBO(27, 94, 32, 1),
                           ),
                           const SizedBox(height: 10),
                           const Text(
@@ -1270,7 +1274,7 @@ class _Tabcontainer extends State {
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w800,
-                              color: Color.fromARGB(231, 112, 70, 249),
+                              color: Color.fromRGBO(27, 94, 32, 1),
                             ),
                           )
                         ],

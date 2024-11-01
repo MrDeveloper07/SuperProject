@@ -4,7 +4,9 @@ import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_not
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/navvBar.dart';
 import 'package:flutter_application_3/profilePage.dart';
+import 'package:flutter_application_3/save_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,12 +44,12 @@ class _MyHomePageState extends State<MyHomePage> {
     super.dispose();
   }
 
-  List<String> names = ["Home", "Favorite", "Search", "Setting", "Profile"];
+  List<String> names = ["Home", "Favorite", "Post", "Challenges", "Profile"];
 
   /// widget list
   final List<Widget> bottomBarPages = [
-    const Page1(),
-    const Page2(),
+    const HomeScreen(),
+    const SavedRecipes(),
     const Page3(),
     const Page4(),
     const Page5(),
@@ -56,29 +58,34 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          names[currentIndex],
-          style: TextStyle(fontWeight: FontWeight.w800),
-        ),
-        centerTitle: true,
-        actions: [
-          Builder(
-            builder: (context) => IconButton(
-              icon: SvgPicture.asset(
-                "assets/three-dots-svgrepo-com.svg",
-                width: 22,
-              ),
-              onPressed: () {
-                Scaffold.of(context).openEndDrawer(); // Opens the end drawer
-              },
-            ),
-          ),
-          const SizedBox(
-            width: 20,
-          )
-        ],
-      ),
+      appBar: currentIndex == 0
+          ? null
+          : currentIndex == 1
+              ? null
+              : AppBar(
+                  title: Text(
+                    names[currentIndex],
+                    style: TextStyle(fontWeight: FontWeight.w800),
+                  ),
+                  centerTitle: true,
+                  actions: [
+                    Builder(
+                      builder: (context) => IconButton(
+                        icon: SvgPicture.asset(
+                          "assets/three-dots-svgrepo-com.svg",
+                          width: 22,
+                        ),
+                        onPressed: () {
+                          Scaffold.of(context)
+                              .openEndDrawer(); // Opens the end drawer
+                        },
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    )
+                  ],
+                ),
       body: PageView(
         controller: _pageController,
         physics: const NeverScrollableScrollPhysics(),
@@ -89,9 +96,11 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: (bottomBarPages.length <= maxCount)
           ? AnimatedNotchBottomBar(
               notchBottomBarController: _controller,
-              color: const Color.fromARGB(231, 112, 70, 249),
+              // color: const Color.fromARGB(231, 112, 70, 249),4
+
+              color: const Color.fromRGBO(27, 94, 32, 1),
               showLabel: false,
-              notchColor: const Color.fromARGB(231, 112, 70, 249),
+              notchColor: const Color.fromRGBO(27, 94, 32, 1),
               kBottomRadius: 2,
               kIconSize: 24,
               removeMargins: false,
@@ -104,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.grey,
                   ),
                   activeItem: Icon(
-                    Icons.home_filled,
+                    Icons.home_outlined,
                     color: Colors.white,
                   ),
                   itemLabel: 'Page 1',
@@ -115,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.grey,
                   ),
                   activeItem: Icon(
-                    Icons.star,
+                    Icons.star_border,
                     color: Colors.white,
                   ),
                   itemLabel: 'Page 2',
@@ -123,23 +132,32 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 ///svg example
                 BottomBarItem(
-                  inActiveItem: SvgPicture.asset(
-                    'assets/icons8-search.svg',
+                  inActiveItem: Icon(
+                    Icons.add_box_rounded,
                     color: Colors.grey,
                   ),
-                  activeItem: SvgPicture.asset(
-                    'assets/icons8-search.svg',
+                  // inActiveItem: SvgPicture.asset(
+                  //   'assets/icons8-search.svg',
+                  //   color: Colors.grey,
+                  // ),
+                  activeItem: Icon(
+                    Icons.add,
                     color: Colors.white,
+                    weight: 800,
                   ),
+                  // activeItem: SvgPicture.asset(
+                  //   'assets/icons8-search.svg',
+                  //   color: Colors.white,
+                  // ),
                   itemLabel: 'Page 3',
                 ),
                 const BottomBarItem(
                   inActiveItem: Icon(
-                    Icons.settings,
+                    Icons.leaderboard,
                     color: Colors.grey,
                   ),
                   activeItem: Icon(
-                    Icons.settings,
+                    Icons.leaderboard_outlined,
                     color: Colors.white,
                   ),
                   itemLabel: 'Page 4',
@@ -150,7 +168,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.grey,
                   ),
                   activeItem: Icon(
-                    Icons.person,
+                    Icons.person_2_outlined,
                     color: Colors.white,
                   ),
                   itemLabel: 'Page 5',
