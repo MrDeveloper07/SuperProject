@@ -81,9 +81,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       SizedBox(
                         width: 10,
                       ),
-                      CircleAvatar(
-                        backgroundImage: AssetImage("assets/dolly.jfif"),
-                        backgroundColor: Colors.orangeAccent,
+                      GestureDetector(
+                        onTap: (){
+                          
+                        },
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage("assets/dolly.jfif"),
+                          backgroundColor: Colors.orangeAccent,
+                        ),
                       ),
                     ],
                   ),

@@ -2,7 +2,9 @@ import 'dart:developer';
 
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_3/analyticsScreen.dart';
 import 'package:flutter_application_3/navvBar.dart';
+import 'package:flutter_application_3/postScreen.dart';
 import 'package:flutter_application_3/profilePage.dart';
 import 'package:flutter_application_3/save_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -50,8 +52,8 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> bottomBarPages = [
     const HomeScreen(),
     const SavedRecipes(),
-    const Page3(),
-    const Page4(),
+    const PostScreen(),
+    const AnalyticsScreen(),
     const Page5(),
   ];
 
@@ -62,30 +64,34 @@ class _MyHomePageState extends State<MyHomePage> {
           ? null
           : currentIndex == 1
               ? null
-              : AppBar(
-                  title: Text(
-                    names[currentIndex],
-                    style: TextStyle(fontWeight: FontWeight.w800),
-                  ),
-                  centerTitle: true,
-                  actions: [
-                    Builder(
-                      builder: (context) => IconButton(
-                        icon: SvgPicture.asset(
-                          "assets/three-dots-svgrepo-com.svg",
-                          width: 22,
+              : currentIndex == 3
+                  ? null
+                  : currentIndex == 2
+                      ? null
+                      : AppBar(
+                          title: Text(
+                            names[currentIndex],
+                            style: const TextStyle(fontWeight: FontWeight.w800),
+                          ),
+                          centerTitle: true,
+                          actions: [
+                            Builder(
+                              builder: (context) => IconButton(
+                                icon: SvgPicture.asset(
+                                  "assets/three-dots-svgrepo-com.svg",
+                                  width: 22,
+                                ),
+                                onPressed: () {
+                                  Scaffold.of(context)
+                                      .openEndDrawer(); // Opens the end drawer
+                                },
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 20,
+                            )
+                          ],
                         ),
-                        onPressed: () {
-                          Scaffold.of(context)
-                              .openEndDrawer(); // Opens the end drawer
-                        },
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    )
-                  ],
-                ),
       body: PageView(
         controller: _pageController,
         physics: const NeverScrollableScrollPhysics(),
@@ -131,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
 
                 ///svg example
-                BottomBarItem(
+                const BottomBarItem(
                   inActiveItem: Icon(
                     Icons.add_box_rounded,
                     color: Colors.grey,
@@ -140,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   //   'assets/icons8-search.svg',
                   //   color: Colors.grey,
                   // ),
-                  activeItem: Icon(
+                  activeItem: const Icon(
                     Icons.add,
                     color: Colors.white,
                     weight: 800,
